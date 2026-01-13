@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Discord](https://img.shields.io/badge/Discord-Join%20Us-7289da)](https://discord.gg/uhp-protocol)
+[![Discord: Coming Soon](https://img.shields.io/badge/Discord-Coming%20Soon-7289da?style=flat&logo=discord&logoColor=white)](https://github.com/RealHaywoodJ/uhp-protocol) 
 
 ---
 
@@ -139,25 +139,36 @@ We need contributors! Here's how you can help:
 
 **We welcome all contributors!** Here's how to get started:
 
-1. **Read the docs:**
-   - [Whitepaper](./uhp-whitepaper.md) - Understand the protocol
-   - [CONTRIBUTING.md](./CONTRIBUTING.md) - Contribution guidelines
-   - [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) - Community standards
+1. **Read the docs**  
+   - [Whitepaper](/uhp-whitepaper.md) – Understand the protocol in depth  
+   - [CONTRIBUTING.md](/CONTRIBUTING.md) – Contribution guidelines  
+   - [CODE_OF_CONDUCT.md](/CODE_OF_CONDUCT.md) – Community standards  
 
-2. **Join the community:**
-   - [Discord](https://discord.gg/uhp-protocol) - Daily discussions
-   - [GitHub Discussions](https://github.com/uhp-protocol/uhp/discussions) - Long-form Q&A
-   - [Twitter](https://twitter.com/UHProtocol) - Announcements
+2. **Get involved / Join the community**  
+   Discord and dedicated Twitter/X coming soon (watch this space!).  
+   For now:  
+   - DM me directly on X → [@RealHaywoodJ](https://x.com/RealHaywoodJ)  
+     (Early feedback, collab ideas, questions—I'm responsive, no gatekeeping)  
+   - Star the repo and watch for updates  
+   - If you're feeling bold: Open an issue or draft a PR (see CONTRIBUTING.md)  
 
-3. **Pick an issue:**
-   - Check [`good-first-issue`](https://github.com/uhp-protocol/uhp/labels/good-first-issue) label
-   - Or propose your own feature/fix
+   Once we hit critical mass (more stars, first commits), I'll spin up:  
+   - Discord server for daily discussions & voice chats  
+   - Official X account for announcements  
+   - GitHub Discussions for long-form Q&A (enable it yourself if you want to test: repo Settings → Features → Discussions)
+
+3. **Pick something & contribute**  
+   - Check for [good first issues](https://github.com/RealHaywoodJ/uhp-protocol/labels/good-first-issue) (add the label if none exist)  
+   - Or propose your own feature/fix via issues  
+   - Fork → branch → PR (tests appreciated but not required yet)
 
 4. **Submit a PR:**
    - Fork the repo
    - Create a feature branch
    - Write tests
    - Open a pull request
+
+   Your input shapes UHP—let's build the post-email identity standard together.
 
 ---
 
@@ -270,10 +281,21 @@ uhp-protocol/
 
 ## 📞 Contact
 
-- **Email:** dev@uhprotocol.org
-- **Discord:** [Join our server](https://discord.gg/uhp-protocol)
-- **Twitter:** [@UHProtocol](https://twitter.com/UHProtocol)
-- **GitHub Discussions:** [Ask questions](https://github.com/uhp-protocol/uhp/discussions)
+Pre-launch and building in public—no official channels live yet, but reach out directly:
+
+- **Email:** dev@eth-munson.com  
+  (For questions about the vision, whitepaper, collaboration ideas, or technical feedback. Responses may take a day or two depending on volume.)
+  
+- **Direct & fastest contact:** DM me on X → [@RealHaywoodJ](https://x.com/RealHaywoodJ) or [@SirSHAmun5on12](https://x.com/SirSHAmun5on12)  
+  - Early discussions, roast sessions, feature suggestions, or just "yo I hate passwords too" — I'm responsive here.  
+  - No formal application or gatekeeping required.
+
+- **Upcoming community channels (watch the repo for updates):**  
+  - Discord server for daily chats, voice calls, and contributor coordination  
+  - Official project X account for announcements and hype drops  
+  - GitHub Discussions for threaded Q&A (enable it yourself to preview: Repo Settings → Features → Discussions)
+
+Star or watch the repo to stay in the loop when these launch. Let's talk UHP—your input shapes it.
 
 ---
 
@@ -303,9 +325,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - ✅ Privacy-first (you own your data)
 - ✅ Universal (works everywhere)
 
-**Join us in building it.**
+## Join Us in Building It
 
-[Read the Whitepaper](./uhp-whitepaper.md) | [Join Discord](https://discord.gg/uhp-protocol) | [Contribute Code](./CONTRIBUTING.md)
+**Own your identity. Own your future.**  
+UHP is pre-alpha and 100% open—vision-stage with docs, whitepaper, and roadmap ready. No code commits yet, but real progress starts with you.
+
+- **Read the full vision** → [Whitepaper](/uhp-whitepaper.md) (comprehensive deep dive)  
+- **Contribute or get involved** → [Contribution Guidelines](/CONTRIBUTING.md) (start here for issues/PRs)  
+- **Talk to me directly (fastest path right now)** → DM on X: [@SirSHAmun5on12](https://x.com/SirSHAmun5on12)  
+  - Feedback, roast the whitepaper, collab ideas, or just "I'm in" — no formal process.  
+- **Email for deeper questions** → [dev@eth-munson.com](mailto:dev@eth-munson.com)  
+
+**Community channels coming soon** (Discord, Official X, GitHub Discussions) — tied to repo traction (stars, first PRs).  
+Star/watch the repo to get pinged when they drop. Let's kill centralized logins together.
 
 ---
 
