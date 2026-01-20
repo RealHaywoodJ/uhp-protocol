@@ -338,6 +338,42 @@ Standard JWTs use RSA or ECDSA signatures (quantum-vulnerable). UHP replaces wit
 
 **Backup Option:** Hardware security key (YubiKey) as physical backup
 
+### 3.5 Future Signature Scheme Considerations
+
+While UHP's reference implementation uses XMSS for its proven quantum resistance and tight QRL blockchain integration, we recognize that post-quantum cryptography is an evolving field. The cryptographic landscape continues to mature as NIST finalizes standards and real-world implementations reveal performance characteristics.
+
+**Current Landscape:**
+- **XMSS Strengths:** Proven quantum resistance (hash-based), simple security assumptions, IETF standardized (RFC 8391)
+- **XMSS Trade-offs:** Stateful signatures (OTS key management), relatively large signatures (~2.5KB), moderate signing speed
+
+**Emerging Alternatives:**
+- **ML-DSA-87 (Dilithium):** NIST-standardized lattice-based signature (2024). Stateless, smaller keys (~2.5KB public, ~4KB private), signatures ~4.5KB. QRL's Zond 2.0 is migrating to ML-DSA-87 as primary scheme
+- **SLH-DSA (SPHINCS+):** NIST-standardized hash-based signature. Stateless like ML-DSA, but much larger signatures (~50KB). QRL plans post-mainnet SLH-DSA support
+- **Falcon:** NIST alternate candidate. Smaller signatures (~1.3KB) but complex implementation
+
+**UHP's Crypto-Agile Approach:**
+
+Rather than hard-coding XMSS forever, UHP is designed with **signature scheme modularity** in mind:
+
+1. **Pluggable Backend Architecture:** The protocol will support a `PqSigner` interface allowing swappable signature implementations
+2. **Ecosystem Alignment:** We'll track QRL's evolution—when Zond 2.0 adopts ML-DSA-87 as primary, UHP will prioritize implementing ML-DSA support
+3. **Performance Benchmarking:** Before migrating, we'll benchmark real-world latency (target: <10ms sign/verify) and assess trade-offs between signature size, speed, and security margins
+4. **Gradual Migration:** Existing XMSS handles will remain supported; new handles may default to more performant schemes as they mature
+
+**Design Principles:**
+- **No Vendor Lock-In:** Multiple PQC algorithms supported via modular backends
+- **Standards-First:** Prioritize NIST-approved algorithms (ML-DSA, SLH-DSA)
+- **Performance Matters:** Stateless schemes preferred for scalability (avoid OTS state management)
+- **Community Input:** Signature scheme roadmap incorporates cryptographer feedback from QRL, NIST forums, and academic research
+
+**Timeline:**
+- **Phase 1 (Current):** XMSS via QRL blockchain (battle-tested, production-ready)
+- **Phase 2 (Post-Zond 2.0):** Implement ML-DSA-87 backend, performance testing
+- **Phase 3 (Year 2-3):** Evaluate SLH-DSA for ultra-high-security use cases
+- **Phase 4 (Year 3-5):** Hybrid schemes (classical + PQC) if needed for transitional compatibility
+
+This modular approach ensures UHP remains adaptable as cryptographic best practices evolve, while maintaining backwards compatibility and avoiding premature commitment to any single algorithm family.
+
 ---
 
 ## 4. Protocol Specification
