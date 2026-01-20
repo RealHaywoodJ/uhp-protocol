@@ -33,10 +33,23 @@ Universal Handle Protocol (UHP) is an **open-source, decentralized identity prot
 
 ---
 
+## 🔐 Post-Quantum Signature Flexibility
+
+UHP's initial implementation uses **QRL-native XMSS signatures** for quantum resistance and tight integration with the QRL blockchain ecosystem. We recognize that the cryptographic landscape is evolving rapidly—QRL itself is migrating to **ML-DSA-87 (Dilithium)** as the primary signature scheme for Zond 2.0, with SLH-DSA (SPHINCS+) planned post-mainnet. To future-proof UHP, we're designing a **modular, crypto-agile signature backend** that will support multiple post-quantum algorithms as they mature and standardize. Our roadmap includes implementing pluggable signature interfaces, with priority support for ML-DSA-87 after Zond's mainnet migration, while maintaining backwards compatibility with XMSS where appropriate. This approach ensures UHP remains aligned with both NIST standards and the broader QRL ecosystem's evolution toward performance-optimized, stateless PQC primitives.
+
+**Key Points:**
+- **Current:** XMSS via QRL blockchain (proven quantum resistance)
+- **Near-term:** Modular signature abstraction layer (crypto-agility by design)
+- **Future:** ML-DSA-87 primary support (post-Zond 2.0), SLH-DSA evaluation, hybrid schemes
+- **Philosophy:** Performance + standards compliance + ecosystem alignment
+
+---
+
 ## 📚 Documentation
 
-- **[Whitepaper (Full Technical Spec)](./uhp-whitepaper.md)** - 25 pages, academic-grade
+- **[Whitepaper (Full Technical Spec)](./UHP-Whitepaper.md)** - 25 pages, academic-grade
 - **[2-Page Explainer](./UHP-Explainer.md)** - Quick overview for non-technical readers
+- **[Technical Roadmap](./ROADMAP.md)** - Detailed implementation timeline with crypto-agility plan
 - **[Protocol Specification](./docs/protocol-spec.md)** - API endpoints, data formats *(coming soon)*
 - **[Integration Guide](./docs/integration-guide.md)** - How to add "Sign in with UHP" *(coming soon)*
 
