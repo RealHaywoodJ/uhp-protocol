@@ -1,0 +1,32 @@
+{
+  "name": "uhp-ref-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Universal Handle Protocol - Reference Server Implementation (Phase 1)",
+  "author": "Ethan Munson",
+  "license": "MIT",
+  "workspaces": [
+    "server",
+    "client",
+    "demo-relying-party"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,green \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm run dev --workspace=server",
+    "dev:client": "npm run dev --workspace=client",
+    "dev:demo": "npm run dev --workspace=demo-relying-party",
+    "dev:all": "concurrently -n server,client,demo -c blue,green,yellow \"npm run dev:server\" \"npm run dev:client\" \"npm run dev:demo\"",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "clean": "npm run clean --workspaces --if-present && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}
