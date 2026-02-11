@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "@simplewebauthn/browser": "^9.0.1",
+    "@types/three": "^0.182.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.21.1"
+    "react-router-dom": "^6.21.1",
+    "three": "^0.182.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.47",

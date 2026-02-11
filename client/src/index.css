@@ -21,6 +21,15 @@
     --uhp-warning: #d97706;
   }
 
+  .dark {
+    --uhp-bg: #0f1117;
+    --uhp-card: #1a1d27;
+    --uhp-border: #2e3347;
+    --uhp-text: #e8e6f0;
+    --uhp-text-secondary: #9895a7;
+    --uhp-surface: #0f172a;
+  }
+
   html {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -64,11 +73,19 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
+  .dark .glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
   /* Animated gradient border */
   .gradient-border {
     position: relative;
     background: white;
     border-radius: 1rem;
+  }
+  .dark .gradient-border {
+    background: #1a1d27;
   }
   .gradient-border::before {
     content: '';
@@ -91,6 +108,12 @@
     border: 1px solid #c7d2fe;
   }
 
+  .dark .handle-badge {
+    background: linear-gradient(135deg, #312e81 0%, #2e1065 100%);
+    color: #a5b4fc;
+    border: 1px solid #4338ca;
+  }
+
   /* Status dot */
   .status-dot {
     @apply inline-block w-2 h-2 rounded-full;
@@ -110,11 +133,20 @@
     animation: shimmer 2s linear infinite;
   }
 
+  .dark .shimmer {
+    background: linear-gradient(90deg, #1a1d27 25%, #2e3347 50%, #1a1d27 75%);
+    background-size: 200% 100%;
+  }
+
   /* Section divider */
   .section-divider {
     @apply border-t border-surface-200;
     background: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.1), transparent);
     height: 1px;
+  }
+
+  .dark .section-divider {
+    @apply border-t border-[#2e3347];
   }
 }
 

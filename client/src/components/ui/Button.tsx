@@ -14,13 +14,13 @@ const variantStyles: Record<ButtonVariant, string> = {
   primary:
     'bg-uhp-600 text-white hover:bg-uhp-700 active:bg-uhp-800 shadow-uhp hover:shadow-uhp-lg',
   secondary:
-    'bg-surface-100 text-surface-800 hover:bg-surface-200 active:bg-surface-300 border border-surface-200',
+    'bg-surface-100 text-surface-800 hover:bg-surface-200 active:bg-surface-300 border border-surface-200 dark:bg-surface-800 dark:text-surface-200 dark:border-surface-700 dark:hover:bg-surface-700 dark:active:bg-surface-600',
   ghost:
-    'text-surface-600 hover:text-surface-900 hover:bg-surface-100 active:bg-surface-200',
+    'text-surface-600 hover:text-surface-900 hover:bg-surface-100 active:bg-surface-200 dark:text-surface-300 dark:hover:text-surface-100 dark:hover:bg-surface-800 dark:active:bg-surface-700',
   danger:
     'bg-red-600 text-white hover:bg-red-700 active:bg-red-800',
   outline:
-    'border-2 border-uhp-600 text-uhp-600 hover:bg-uhp-50 active:bg-uhp-100',
+    'border-2 border-uhp-600 text-uhp-600 hover:bg-uhp-50 active:bg-uhp-100 dark:border-uhp-400 dark:text-uhp-400 dark:hover:bg-uhp-950 dark:active:bg-uhp-900',
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

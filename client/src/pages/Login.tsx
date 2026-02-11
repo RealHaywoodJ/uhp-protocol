@@ -16,7 +16,6 @@ export default function Login() {
   const { loading, error, step, login, clearError } = useWebAuthn();
   const [handle, setHandle] = useState('');
 
-  // If redirected from OAuth, capture the return URL
   const returnTo = searchParams.get('return_to');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -28,7 +27,6 @@ export default function Login() {
       await authLogin(result.session_token, result.handle.handle);
       toast('success', `Welcome back, ${result.handle.display_name || result.handle.handle}!`);
 
-      // Redirect to return URL or dashboard
       setTimeout(() => {
         navigate(returnTo || '/dashboard');
       }, 800);
@@ -79,15 +77,15 @@ export default function Login() {
       </div>
 
       {/* Right panel - Form */}
-      <div className="flex-1 flex items-center justify-center p-6 sm:p-12">
+      <div className="flex-1 flex items-center justify-center p-6 sm:p-12 bg-surface-50 dark:bg-[#0f1117]">
         <div className="w-full max-w-md">
           <Card padding="lg">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-uhp-50 mb-4">
-                <FingerprintIcon size={28} className="text-uhp-600" />
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-uhp-50 dark:bg-uhp-950/50 mb-4">
+                <FingerprintIcon size={28} className="text-uhp-600 dark:text-uhp-400" />
               </div>
-              <h2 className="text-2xl font-bold text-surface-900">Login</h2>
-              <p className="text-sm text-surface-500 mt-1">
+              <h2 className="text-2xl font-bold text-surface-900 dark:text-white">Login</h2>
+              <p className="text-sm text-surface-500 dark:text-surface-400 mt-1">
                 Authenticate with your registered biometric
               </p>
             </div>
@@ -107,7 +105,7 @@ export default function Login() {
               />
 
               {error && (
-                <div className="flex items-start gap-3 p-4 rounded-xl bg-red-50 border border-red-200">
+                <div className="flex items-start gap-3 p-4 rounded-xl bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900">
                   <div className="flex-shrink-0 w-5 h-5 text-red-500 mt-0.5">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <circle cx="12" cy="12" r="10" />
@@ -115,18 +113,18 @@ export default function Login() {
                       <line x1="12" x2="12.01" y1="16" y2="16" />
                     </svg>
                   </div>
-                  <p className="text-sm text-red-700">{error}</p>
+                  <p className="text-sm text-red-700 dark:text-red-400">{error}</p>
                 </div>
               )}
 
               {step === 'authenticating' && (
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-uhp-50 border border-uhp-200 animate-pulse-slow">
-                  <FingerprintIcon size={20} className="text-uhp-600" />
+                <div className="flex items-center gap-3 p-4 rounded-xl bg-uhp-50 dark:bg-uhp-950/30 border border-uhp-200 dark:border-uhp-800 animate-pulse-slow">
+                  <FingerprintIcon size={20} className="text-uhp-600 dark:text-uhp-400" />
                   <div>
-                    <p className="text-sm font-medium text-uhp-800">
+                    <p className="text-sm font-medium text-uhp-800 dark:text-uhp-300">
                       Waiting for biometric...
                     </p>
-                    <p className="text-xs text-uhp-600 mt-0.5">
+                    <p className="text-xs text-uhp-600 dark:text-uhp-400 mt-0.5">
                       Follow the prompt from your browser to authenticate
                     </p>
                   </div>
@@ -134,13 +132,13 @@ export default function Login() {
               )}
 
               {step === 'complete' && (
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-emerald-50 border border-emerald-200 animate-scale-in">
-                  <CheckCircleIcon size={20} className="text-emerald-600" />
+                <div className="flex items-center gap-3 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 animate-scale-in">
+                  <CheckCircleIcon size={20} className="text-emerald-600 dark:text-emerald-400" />
                   <div>
-                    <p className="text-sm font-medium text-emerald-800">
+                    <p className="text-sm font-medium text-emerald-800 dark:text-emerald-300">
                       Authenticated successfully!
                     </p>
-                    <p className="text-xs text-emerald-600 mt-0.5">
+                    <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-0.5">
                       Redirecting to dashboard...
                     </p>
                   </div>
@@ -166,9 +164,9 @@ export default function Login() {
               </Button>
             </form>
 
-            <p className="mt-6 text-center text-sm text-surface-500">
+            <p className="mt-6 text-center text-sm text-surface-500 dark:text-surface-400">
               Don't have a handle?{' '}
-              <Link to="/register" className="text-uhp-600 hover:text-uhp-700 font-medium">
+              <Link to="/register" className="text-uhp-600 dark:text-uhp-400 hover:text-uhp-700 dark:hover:text-uhp-300 font-medium">
                 Register here
               </Link>
             </p>

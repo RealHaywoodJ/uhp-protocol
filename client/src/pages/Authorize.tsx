@@ -48,7 +48,6 @@ export default function Authorize() {
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
-      // Redirect to login with return URL
       const returnUrl = `/authorize?${searchParams.toString()}`;
       window.location.href = `/login?return_to=${encodeURIComponent(returnUrl)}`;
     }
@@ -59,7 +58,6 @@ export default function Authorize() {
     setError('');
 
     try {
-      // Submit approval to the server's OAuth authorize endpoint
       const res = await fetch(`/api/v1/oauth/authorize?${searchParams.toString()}`, {
         method: 'GET',
         headers: {
@@ -69,7 +67,6 @@ export default function Authorize() {
       });
 
       if (res.type === 'opaqueredirect' || res.status === 302) {
-        // Server redirected - follow it
         const location = res.headers.get('Location');
         if (location) {
           window.location.href = location;
@@ -77,7 +74,6 @@ export default function Authorize() {
         }
       }
 
-      // Try to get redirect URL from response
       if (res.ok) {
         const data = await res.json();
         if (data.redirect_uri) {
@@ -86,7 +82,6 @@ export default function Authorize() {
         }
       }
 
-      // Fallback: construct redirect with error info
       throw new Error('Authorization flow could not complete');
     } catch (err: any) {
       setError(err.message || 'Authorization failed');
@@ -95,7 +90,6 @@ export default function Authorize() {
   };
 
   const handleDeny = () => {
-    // Redirect back with error
     const url = new URL(params.redirect_uri);
     url.searchParams.set('error', 'access_denied');
     url.searchParams.set('error_description', 'User denied the authorization request');
@@ -129,11 +123,11 @@ export default function Authorize() {
           <div className="p-6 space-y-6">
             {/* App info */}
             <div className="text-center">
-              <div className="w-14 h-14 rounded-2xl bg-surface-100 flex items-center justify-center mx-auto mb-3">
-                <ShieldIcon size={24} className="text-surface-500" />
+              <div className="w-14 h-14 rounded-2xl bg-surface-100 dark:bg-surface-800 flex items-center justify-center mx-auto mb-3">
+                <ShieldIcon size={24} className="text-surface-500 dark:text-surface-400" />
               </div>
-              <p className="text-sm text-surface-500">
-                <span className="font-semibold text-surface-900">
+              <p className="text-sm text-surface-500 dark:text-surface-400">
+                <span className="font-semibold text-surface-900 dark:text-white">
                   {params.client_id || 'An application'}
                 </span>
                 {' '}wants to access your UHP identity
@@ -141,11 +135,11 @@ export default function Authorize() {
             </div>
 
             {/* Authenticated as */}
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-uhp-50 border border-uhp-200">
-              <CheckCircleIcon size={18} className="text-uhp-600 flex-shrink-0" />
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-uhp-50 dark:bg-uhp-950/30 border border-uhp-200 dark:border-uhp-800">
+              <CheckCircleIcon size={18} className="text-uhp-600 dark:text-uhp-400 flex-shrink-0" />
               <div className="text-sm">
-                <span className="text-surface-500">Signed in as </span>
-                <span className="font-mono font-semibold text-uhp-700">
+                <span className="text-surface-500 dark:text-surface-400">Signed in as </span>
+                <span className="font-mono font-semibold text-uhp-700 dark:text-uhp-300">
                   @{handle?.handle?.replace(/@/g, '') || ''}
                 </span>
               </div>
@@ -153,18 +147,18 @@ export default function Authorize() {
 
             {/* Scopes */}
             <div>
-              <h3 className="text-sm font-semibold text-surface-900 mb-3">
+              <h3 className="text-sm font-semibold text-surface-900 dark:text-white mb-3">
                 This app will be able to:
               </h3>
               <div className="space-y-2">
                 {scopes.map((scope) => {
                   const info = scopeLabels[scope] || { label: scope, description: `Access your ${scope} data` };
                   return (
-                    <div key={scope} className="flex items-start gap-3 p-3 rounded-xl bg-surface-50 border border-surface-100">
+                    <div key={scope} className="flex items-start gap-3 p-3 rounded-xl bg-surface-50 dark:bg-surface-800/50 border border-surface-100 dark:border-[#2e3347]">
                       <CheckCircleIcon size={16} className="text-emerald-500 mt-0.5 flex-shrink-0" />
                       <div>
-                        <div className="text-sm font-medium text-surface-900">{info.label}</div>
-                        <div className="text-xs text-surface-500">{info.description}</div>
+                        <div className="text-sm font-medium text-surface-900 dark:text-white">{info.label}</div>
+                        <div className="text-xs text-surface-500 dark:text-surface-400">{info.description}</div>
                       </div>
                     </div>
                   );
@@ -178,9 +172,9 @@ export default function Authorize() {
             </div>
 
             {error && (
-              <div className="flex items-start gap-2 p-3 rounded-xl bg-red-50 border border-red-200">
+              <div className="flex items-start gap-2 p-3 rounded-xl bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900">
                 <AlertCircleIcon size={16} className="text-red-500 mt-0.5 flex-shrink-0" />
-                <p className="text-sm text-red-700">{error}</p>
+                <p className="text-sm text-red-700 dark:text-red-400">{error}</p>
               </div>
             )}
 

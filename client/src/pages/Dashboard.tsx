@@ -35,12 +35,12 @@ export default function Dashboard() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 animate-fade-in">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-surface-900">Dashboard</h1>
-        <p className="text-surface-500 mt-1">Manage your UHP identity and connections</p>
+        <h1 className="text-3xl font-bold text-surface-900 dark:text-white">Dashboard</h1>
+        <p className="text-surface-500 dark:text-surface-400 mt-1">Manage your UHP identity and connections</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Identity Card - Full width on mobile, spans 2 cols on desktop */}
+        {/* Identity Card */}
         <div className="lg:col-span-2">
           <Card padding="none" className="overflow-hidden">
             <div className="bg-uhp-gradient p-8 relative">
@@ -98,7 +98,7 @@ export default function Dashboard() {
         {/* Quick Actions */}
         <div className="space-y-6">
           <Card padding="md">
-            <h3 className="text-sm font-semibold text-surface-900 mb-4 uppercase tracking-wider">
+            <h3 className="text-sm font-semibold text-surface-900 dark:text-white mb-4 uppercase tracking-wider">
               Quick Actions
             </h3>
             <div className="space-y-2">
@@ -124,14 +124,14 @@ export default function Dashboard() {
           </Card>
 
           {/* Algorithm info */}
-          <Card padding="md" className="bg-uhp-gradient-subtle border-uhp-200">
+          <Card padding="md" className="bg-uhp-gradient-subtle dark:!bg-uhp-950/30 border-uhp-200 dark:!border-uhp-900">
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-xl bg-uhp-100 flex items-center justify-center flex-shrink-0">
-                <ShieldIcon size={18} className="text-uhp-600" />
+              <div className="w-10 h-10 rounded-xl bg-uhp-100 dark:bg-uhp-900/50 flex items-center justify-center flex-shrink-0">
+                <ShieldIcon size={18} className="text-uhp-600 dark:text-uhp-400" />
               </div>
               <div>
-                <h4 className="text-sm font-semibold text-surface-900">Crypto-Agile</h4>
-                <p className="text-xs text-surface-500 mt-1 leading-relaxed">
+                <h4 className="text-sm font-semibold text-surface-900 dark:text-white">Crypto-Agile</h4>
+                <p className="text-xs text-surface-500 dark:text-surface-400 mt-1 leading-relaxed">
                   Your identity uses {handle.algorithm} signatures. When post-quantum algorithms
                   (ML-DSA-87) are ready, your handle upgrades seamlessly.
                 </p>
@@ -143,16 +143,16 @@ export default function Dashboard() {
 
       {/* OAuth Integrations Section */}
       <div className="mt-8">
-        <h2 className="text-xl font-bold text-surface-900 mb-4">Connected Applications</h2>
+        <h2 className="text-xl font-bold text-surface-900 dark:text-white mb-4">Connected Applications</h2>
         <Card padding="lg" className="text-center">
           <div className="py-6">
-            <div className="w-16 h-16 rounded-2xl bg-surface-100 flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 rounded-2xl bg-surface-100 dark:bg-surface-800 flex items-center justify-center mx-auto mb-4">
               <GlobeIcon size={28} className="text-surface-400" />
             </div>
-            <h3 className="text-lg font-semibold text-surface-900 mb-2">
+            <h3 className="text-lg font-semibold text-surface-900 dark:text-white mb-2">
               No Connected Apps Yet
             </h3>
-            <p className="text-sm text-surface-500 max-w-md mx-auto mb-6">
+            <p className="text-sm text-surface-500 dark:text-surface-400 max-w-md mx-auto mb-6">
               When you use "Sign in with UHP" on third-party websites, they'll appear here.
               Try the demo relying party to see the OAuth flow in action.
             </p>
@@ -174,22 +174,22 @@ export default function Dashboard() {
 
       {/* Security Features */}
       <div className="mt-8">
-        <h2 className="text-xl font-bold text-surface-900 mb-4">Security</h2>
+        <h2 className="text-xl font-bold text-surface-900 dark:text-white mb-4">Security</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <SecurityFeature
-            icon={<FingerprintIcon size={20} className="text-uhp-600" />}
+            icon={<FingerprintIcon size={20} className="text-uhp-600 dark:text-uhp-400" />}
             title="Passwordless Auth"
             description="WebAuthn/FIDO2 biometric authentication. No passwords to steal."
             status="active"
           />
           <SecurityFeature
-            icon={<ShieldIcon size={20} className="text-quantum-600" />}
+            icon={<ShieldIcon size={20} className="text-quantum-600 dark:text-quantum-400" />}
             title="Quantum-Resistant"
             description={`${handle.algorithm} signatures with crypto-agile upgrade path.`}
             status="active"
           />
           <SecurityFeature
-            icon={<GlobeIcon size={20} className="text-emerald-600" />}
+            icon={<GlobeIcon size={20} className="text-emerald-600 dark:text-emerald-400" />}
             title="Decentralized"
             description="Federated identity. No single point of failure."
             status="active"
@@ -202,12 +202,12 @@ export default function Dashboard() {
 
 function InfoTile({ label, value, icon }: { label: string; value: string; icon: React.ReactNode }) {
   return (
-    <div className="p-3 rounded-xl bg-surface-50 border border-surface-100">
+    <div className="p-3 rounded-xl bg-surface-50 dark:bg-surface-800/50 border border-surface-100 dark:border-[#2e3347]">
       <div className="flex items-center gap-1.5 mb-1.5">
         {icon}
-        <span className="text-2xs font-medium text-surface-500 uppercase tracking-wider">{label}</span>
+        <span className="text-2xs font-medium text-surface-500 dark:text-surface-400 uppercase tracking-wider">{label}</span>
       </div>
-      <span className="text-sm font-semibold text-surface-900">{value}</span>
+      <span className="text-sm font-semibold text-surface-900 dark:text-white">{value}</span>
     </div>
   );
 }
@@ -223,15 +223,15 @@ function SecurityFeature({
   return (
     <Card hover padding="md">
       <div className="flex items-start gap-3">
-        <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-surface-50 flex items-center justify-center">
+        <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-surface-50 dark:bg-surface-800 flex items-center justify-center">
           {icon}
         </div>
         <div className="flex-1">
           <div className="flex items-center gap-2">
-            <h4 className="text-sm font-semibold text-surface-900">{title}</h4>
+            <h4 className="text-sm font-semibold text-surface-900 dark:text-white">{title}</h4>
             <span className={`status-dot${status === 'active' ? '-active' : '-inactive'}`} />
           </div>
-          <p className="text-xs text-surface-500 mt-1 leading-relaxed">{description}</p>
+          <p className="text-xs text-surface-500 dark:text-surface-400 mt-1 leading-relaxed">{description}</p>
         </div>
       </div>
     </Card>
